@@ -601,7 +601,7 @@ public class Library {
         {
             String host = "jdbc:derby://localhost:1527/LMS";
             String uName = "sam";
-            String uPass= "sam123";
+            String uPass= "sam1234";
             Connection con = DriverManager.getConnection( host, uName, uPass );
             return con;
         }
