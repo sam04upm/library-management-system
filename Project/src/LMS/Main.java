@@ -271,7 +271,7 @@ public class Main
         Library lib = Library.getInstance();
         
         // Setting some by default information like name of library ,fine, deadline and limit of hold request
-        lib.setFine(20);
+        lib.setFine(50);
         lib.setRequestExpiry(7);
         lib.setReturnDeadline(5);
         lib.setName("FAST Library");
@@ -296,7 +296,7 @@ public class Main
 
             // FRONT END //
             System.out.println("--------------------------------------------------------");
-            System.out.println("\tWelcome to Library Management System");
+            System.out.println("\tWelcome to the Advanced Library System");
             System.out.println("--------------------------------------------------------");
             
             System.out.println("Following Functionalities are available: \n");
@@ -480,4 +480,3 @@ public class Main
     }    // Main Closed
     
 }   // Class closed.
-
