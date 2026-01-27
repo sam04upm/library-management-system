@@ -600,8 +600,8 @@ public class Library {
         try
         {
             String host = "jdbc:derby://localhost:1527/LMS";
-            String uName = "admin2";
-            String uPass= "admin1234";
+            String uName = "admin";
+            String uPass= "admin123";
             Connection con = DriverManager.getConnection( host, uName, uPass );
             return con;
         }
