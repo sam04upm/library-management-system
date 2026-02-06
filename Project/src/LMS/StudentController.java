@@ -1,3 +1,5 @@
+import java.sql.SQLException;
+
 private void addStudent() {
     try {
         String name = nameField.getText();
@@ -32,4 +34,11 @@ private void addStudent() {
     } catch (Exception e) {
         showError("Unexpected error: " + e.getMessage());
     }
+
+    try {
+    studentDAO.addStudent(student);} 
+    catch (Exception e) {
+    showError("An unexpected error occurred. Please try again.");
+}
+
 }
