@@ -8,6 +8,12 @@
 <!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
 <!-- in the project's Project Properties dialog box.-->
 <project name="Library_Management_System" default="default" basedir=".">
+<path id="project.classpath">
+    <fileset dir="lib">
+        <include name="HikariCP-5.0.1.jar"/>
+        <include name="slf4j-api-1.7.7.jar"/>
+    </fileset>
+</path>
     <description>Builds, tests, and runs the project Library Management System.</description>
     <import file="nbproject/build-impl.xml"/>
     <!--
