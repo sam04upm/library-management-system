@@ -1,6 +1,6 @@
 package LMS;
 
-import javafx.application.Platform;
+import javax.swing.SwingUtilities;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -84,9 +84,9 @@ public class SessionManager {
             System.out.println("[SessionManager] Timeout reached. Logging out...");
             stopSession();
 
-            // UI updates must happen on the JavaFX Application Thread
+            // UI updates must happen on the Event Dispatch Thread
             if (logoutHandler != null) {
-                Platform.runLater(logoutHandler);
+                SwingUtilities.invokeLater(logoutHandler);
             }
         }
     }
