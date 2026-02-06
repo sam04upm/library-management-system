@@ -2,7 +2,6 @@ package LMS;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.AWTEventListener;
 
 public class LoginController extends JFrame {
 
@@ -29,14 +28,6 @@ public class LoginController extends JFrame {
         loginButton.addActionListener(e -> handleLogin());
         add(loginButton);
 
-        // Global activity listener for SessionManager
-        long eventMask = AWTEvent.MOUSE_EVENT_MASK | AWTEvent.KEY_EVENT_MASK;
-        Toolkit.getDefaultToolkit().addAWTEventListener(new AWTEventListener() {
-            public void eventDispatched(AWTEvent e) {
-                SessionManager.getInstance().updateActivity();
-            }
-        }, eventMask);
-        
         setVisible(true);
     }
 
@@ -48,7 +39,9 @@ public class LoginController extends JFrame {
             // Define session expiry behavior
             Runnable onSessionExpire = () -> {
                 JOptionPane.showMessageDialog(null, "Session Timeout. Logging out.");
-                dispose(); // Close current window
+                for (Window w : Window.getWindows()) {
+                    w.dispose();
+                }
                 new LoginController(); // Return to login
             };
 
@@ -85,11 +78,6 @@ public class LoginController extends JFrame {
     private void loadDashboard() {
         // Hide Login Window
         this.setVisible(false);
-        
-        // Show Dashboard (Placeholder for now)
-        JFrame dashboard = new JFrame("Dashboard");
-        dashboard.setSize(400, 300);
-        dashboard.add(new JLabel("Welcome to Library Management System", SwingConstants.CENTER));
-        dashboard.setVisible(true);
+        new MainController();
     }
 }
